@@ -1,15 +1,17 @@
 function solution(s) {
-  const arr = s.split(" ");
+  var answer = "";
+  const nums = s.split(" ");
   let minInd = 0;
   let maxInd = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (Number(arr[minInd]) > Number(arr[i])) {
-      minInd = i;
-    }
-    if (Number(arr[maxInd]) < Number(arr[i])) {
+  for (let i = 0; i < nums.length; i++) {
+    if (Number(nums[i]) >= Number(nums[maxInd])) {
       maxInd = i;
     }
+    if (Number(nums[i]) <= Number(nums[minInd])) {
+      minInd = i;
+    }
   }
-  let answer = `${arr[minInd]} ${arr[maxInd]}`;
+
+  answer += nums[minInd] + " " + nums[maxInd];
   return answer;
 }
