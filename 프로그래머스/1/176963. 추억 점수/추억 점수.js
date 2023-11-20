@@ -4,12 +4,5 @@ function solution(name, yearning, photo) {
     score[el] = yearning[i];
   });
 
-  const answer = photo.map((els) => {
-    let sum = 0;
-    for (let el of els) {
-      sum += score[el] ?? 0;
-    }
-    return sum;
-  });
-  return answer;
+  return photo.map((els) => els.reduce((acc, el)=> (acc + (score[el] ?? 0)), 0));
 }
